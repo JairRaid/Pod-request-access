@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Publish your podcasts everywhere with Pod. Upload your audio once and distribute it to Spotify, Apple Podcasts, Google Podcasts, Pocket Casts, and more."
+    />
+    <title>Pod | request access</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <main class="main-content">
+        <article class="pod">
+          <header class="pod__header">
+            <a class="pod__logo" href="#"
+              ><img
+                class="pod__logo"
+                src="assets/images/pod-logo.svg"
+                alt=""
+                aria-hidden="true"
+                width="56"
+                height="56"
+              />
+              <img
+                class="pod__logo-text"
+                src="assets/images/pod-logo-text.svg"
+                alt="Pod"
+              />
+            </a>
+          </header>
+          <div class="pod__hero">
+            <picture class="pod__hero-media">
+              <source
+                media="(min-width:1024px)"
+                srcset="assets/images/lg-bg.png"
+              />
+              <source
+                media="(min-width:768px)"
+                srcset="assets/images/md-bg.png"
+              />
+              <img src="assets/images/sm-bg.png" alt="" aria-hidden="true" />
+            </picture>
+          </div>
+          <div class="pod__content">
+            <h1 class="pod__title">
+              <span class="pod__title-highlight">PUBLISH YOUR PODCASTS</span>
+              EVERYWHERE.
+            </h1>
+            <p class="pod__description">
+              Upload your audio to Pod with a single click. We’ll then
+              distribute your podcast to Spotify, Apple Podcasts, Google
+              Podcasts, Pocket Casts and more!
+            </p>
+            <ul class="pod__platforms" aria-label="Available podcast platforms">
+              <li class="pod__platform">
+                <picture>
+                  <source
+                    media="(min-width:768px)"
+                    srcset="assets/images/md-spotify-logo.svg"
+                  />
+                  <img
+                    src="assets/images/spotify-logo.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </picture>
+              </li>
+              <li class="pod__platform">
+                <picture>
+                  <source
+                    media="(min-width:768px)"
+                    srcset="assets/images/md-apple-podcast.svg"
+                  />
+                  <img
+                    src="assets/images/apple-podcast.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </picture>
+              </li>
+              <li class="pod__platform">
+                <picture>
+                  <source
+                    media="(min-width:768px)"
+                    srcset="assets/images/md-google-podcast.svg"
+                  />
+                  <img
+                    src="assets/images/google-podcast.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </picture>
+              </li>
+              <li class="pod__platform">
+                <picture>
+                  <source
+                    media="(min-width:768px)"
+                    srcset="assets/images/md-pocket-casts.svg"
+                  />
+                  <img
+                    src="assets/images/pocket-casts.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </picture>
+              </li>
+            </ul>
+            <form class="pod__form" action="#">
+              <div class="pod__field">
+                <label class="sr-only" for="email">Email address</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="email"
+                  aria-describedby="email-error"
+                  placeholder="Email address"
+                  autocomplete="email"
+                  required
+                />
+                <p id="email-error" class="email-error" aria-live="polite">
+                  Oops! Please check your email
+                </p>
+              </div>
+              <button class="pod__button" type="submit">Request Access</button>
+            </form>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
