@@ -1,56 +1,72 @@
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  return emailRegex.test(String(email).trim());
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const emailInput = document.querySelector("#email");
-  const submit = document.querySelector(".pod__button");
-  const emailError = document.querySelector(".email-error");
-  const form = document.querySelector(".pod__form");
-  let email = null;
-  let isValid = null;
+  const selectors = {
+    emailInput: "#email",
+    submitBtn: ".pod__button",
+    emailError: ".email-error",
+    form: ".pod__form",
+  };
 
-  emailInput.addEventListener("input", (event) => {
-    email = emailInput.value;
-    isValid = isValidEmail(email);
+  const el = {
+    emailInput: document.querySelector(selectors.emailInput),
+    submitBtn: document.querySelector(selectors.submitBtn),
+    emailError: document.querySelector(selectors.emailError),
+    form: document.querySelector(selectors.form),
+  };
 
-    emailError.classList.remove("is-visible");
-    emailInput.classList.remove("input-error");
-  });
+  if (!el.emailInput || !el.emailError || !el.form) return;
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  const state = { email: "", isValid: false };
 
-    email = emailInput.value;
-    isValid = isValidEmail(email);
+  function showError() {
+    el.emailError.classList.add("is-visible");
+    el.emailInput.classList.add("input-error");
+    el.emailInput.setAttribute("aria-invalid", "true");
+    el.emailError.setAttribute("aria-hidden", "false");
+  }
 
-    if (isValid) {
-      emailInput.value = "";
+  function clearError() {
+    el.emailError.classList.remove("is-visible");
+    el.emailInput.classList.remove("input-error");
+    el.emailInput.setAttribute("aria-invalid", "false");
+    el.emailError.setAttribute("aria-hidden", "true");
+  }
 
-      emailInput.setAttribute("aria-invalid", "false");
-      emailError.setAttribute("aria-hidden", "true");
-    }
+  function validateCurrent() {
+    state.email = el.emailInput.value;
+    state.isValid = isValidEmail(state.email);
+    return state.isValid;
+  }
 
-    if (!isValid) {
-      emailError.classList.add("is-visible");
-      emailInput.classList.add("input-error");
-
-      emailInput.setAttribute("aria-invalid", "true");
-      emailError.setAttribute("aria-hidden", "false");
-    }
-  });
-
-  submit.addEventListener("click", (event) => {
-    email = emailInput.value;
-    isValid = isValidEmail(email);
-
-    if (!isValid) {
-      emailError.classList.add("is-visible");
-      emailInput.classList.add("input-error");
-
-      emailInput.setAttribute("aria-invalid", "true");
-      emailError.setAttribute("aria-hidden", "false");
+  el.emailInput.addEventListener("input", () => {
+    validateCurrent();
+    if (state.isValid) clearError();
+    else {
+      // remove visual error while typing but keep aria state neutral
+      el.emailError.classList.remove("is-visible");
+      el.emailInput.classList.remove("input-error");
     }
   });
+
+  el.form.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    if (validateCurrent()) {
+      el.emailInput.value = "";
+      clearError();
+      // TODO: handle successful submission (e.g. send request)
+      return;
+    }
+    showError();
+  });
+
+  if (el.submitBtn) {
+    el.submitBtn.addEventListener("click", () => {
+      if (!validateCurrent()) showError();
+    });
+  }
 });
