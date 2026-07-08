@@ -11,18 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let email = null;
   let isValid = null;
 
-  //   submit.disabled = true;
-
   emailInput.addEventListener("input", (event) => {
     email = emailInput.value;
     isValid = isValidEmail(email);
 
     emailError.classList.remove("is-visible");
     emailInput.classList.remove("input-error");
-
-    if (isValid) {
-      console.log("valide");
-    }
   });
 
   form.addEventListener("submit", (event) => {
