@@ -126,6 +126,10 @@ button {
 }
 
 /* Base styles */
+body {
+  block-size: 100vh;
+}
+
 h1 {
   font: var(--font-title);
   color: var(--white);
@@ -202,10 +206,11 @@ button[type="submit"]:focus-visible {
 }
 
 .page-shell {
-  block-size: 100vh;
+  min-block-size: 100vh;
   inline-size: 100%;
   display: flex;
   justify-content: center;
+  border: 1px solid red;
 }
 
 .main-content {
