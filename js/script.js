@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.querySelector("#email");
   const submit = document.querySelector(".pod__button");
   const emailError = document.querySelector(".email-error");
+  const form = document.querySelector(".pod__form");
   let email = null;
   let isValid = null;
 
@@ -16,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     email = emailInput.value;
     isValid = isValidEmail(email);
 
-    console.log(email);
-
     emailError.classList.remove("is-visible");
     emailInput.classList.remove("input-error");
 
@@ -26,11 +25,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  submit.addEventListener("click", (event) => {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
     email = emailInput.value;
     isValid = isValidEmail(email);
 
-    if (isValid) return;
+    if (isValid) {
+      emailInput.value = "";
+    }
+
+    if (!isValid) {
+      emailError.classList.add("is-visible");
+      emailInput.classList.add("input-error");
+    }
+  });
+
+  submit.addEventListener("click", (event) => {
+    email = emailInput.value;
+    isValid = isValidEmail(email);
 
     if (!isValid) {
       emailError.classList.add("is-visible");

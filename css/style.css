@@ -159,14 +159,14 @@ input[type="email"]:-webkit-autofill,
 input[type="email"]:-webkit-autofill:hover,
 input[type="email"]:-webkit-autofill:focus,
 input[type="email"]:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--white) !important;
-  background-color: var(--blue-900) !important;
-  box-shadow: 0 0 0 1000px var(--blue-900) inset !important;
+  -webkit-text-fill-color: var(--white);
+  background-color: var(--blue-900);
+  box-shadow: 0 0 0 1000px var(--blue-900) inset;
 }
 
 input[type="email"]:-moz-autofill {
-  -moz-text-fill-color: var(--white) !important;
-  box-shadow: 0 0 0 1000px var(--blue-900) inset !important;
+  -moz-text-fill-color: var(--white);
+  box-shadow: 0 0 0 1000px var(--blue-900) inset;
 }
 
 button[type="submit"] {
