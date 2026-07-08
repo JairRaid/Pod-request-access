@@ -19,10 +19,9 @@ This is a solution to the [Pod request access landing page](https://www.frontend
 
 Your users should be able to:
 
--Receive an error message when the form is submitted if:
-
-    - The Email address field is empty should show "Oops! Please add your email"
-    - The email is not formatted correctly should show "Oops! Please check your email"
+- Receive an error message when the form is submitted if:
+  - The Email address field is empty should show "Oops! Please add your email"
+  - The email is not formatted correctly should show "Oops! Please check your email"
 
 - View the optimal layout depending on their device's screen size
   See hover states for interactive elements
@@ -33,8 +32,8 @@ Your users should be able to:
 
 ### Links
 
-- Solution URL:
-- Live Site URL:
+- Solution URL: https://github.com/JairRaid/Pod-request-access
+- Live Site URL: https://jairraid.github.io/Pod-request-access/
 
 ## My process
 
