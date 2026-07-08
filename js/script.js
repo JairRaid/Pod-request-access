@@ -33,11 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isValid) {
       emailInput.value = "";
+
+      emailInput.setAttribute("aria-invalid", "false");
+      emailError.setAttribute("aria-hidden", "true");
     }
 
     if (!isValid) {
       emailError.classList.add("is-visible");
       emailInput.classList.add("input-error");
+
+      emailInput.setAttribute("aria-invalid", "true");
+      emailError.setAttribute("aria-hidden", "false");
     }
   });
 
@@ -48,6 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isValid) {
       emailError.classList.add("is-visible");
       emailInput.classList.add("input-error");
+
+      emailInput.setAttribute("aria-invalid", "true");
+      emailError.setAttribute("aria-hidden", "false");
     }
   });
 });

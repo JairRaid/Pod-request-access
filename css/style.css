@@ -268,8 +268,7 @@ button[type="submit"]:focus-visible {
   outline: 2px solid var(--red) !important;
 }
 
-.email-error {
-  display: none;
+.email-error[aria-hidden="false"] {
   font: var(--font-error);
   color: var(--red);
   position: absolute;
@@ -279,7 +278,11 @@ button[type="submit"]:focus-visible {
   transform: translate(-50%, calc(100% + 0.5rem));
 }
 
-.email-error.is-visible {
+.email-error[aria-hidden="true"] {
+  display: none;
+}
+
+.email-error[aria-hidden="false"].is-visible {
   display: block;
 }
 
@@ -380,7 +383,7 @@ button[type="submit"]:focus-visible {
     max-inline-size: 10.75rem;
   }
 
-  .email-error {
+  .email-error[aria-hidden="false"] {
     transform: translate(calc(-50% + 2rem), calc(100% + 0.5rem));
   }
 }

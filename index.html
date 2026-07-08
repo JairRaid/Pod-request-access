@@ -126,9 +126,15 @@
                   aria-describedby="email-error"
                   placeholder="Email address"
                   autocomplete="email"
+                  aria-invalid="false"
                   required
                 />
-                <p id="email-error" class="email-error" aria-live="polite">
+                <p
+                  id="email-error"
+                  class="email-error"
+                  aria-hidden="true"
+                  aria-live="polite"
+                >
                   Oops! Please check your email
                 </p>
               </div>
