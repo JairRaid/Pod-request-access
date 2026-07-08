@@ -126,9 +126,6 @@ button {
 }
 
 /* Base styles */
-body {
-  block-size: 100vh;
-}
 
 h1 {
   font: var(--font-title);
@@ -210,6 +207,8 @@ button[type="submit"]:focus-visible {
   inline-size: 100%;
   display: flex;
   justify-content: center;
+
+  position: relative;
 }
 
 .main-content {
