@@ -423,3 +423,13 @@ button[type="submit"]:focus-visible {
     inline-size: 65%;
   }
 }
+
+@media (min-width: 90.0625rem) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  .page-shell {
+    max-width: 90rem;
+  }
+}
